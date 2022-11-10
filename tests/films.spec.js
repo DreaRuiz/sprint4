@@ -250,7 +250,7 @@ describe('Function "orderAlphabetically"', () => {
   });
 });
 
-// Exercise 5
+/* // Exercise 5
 describe('Function "orderByYear"', () => {
   it('should be declared', () => {
     expect(typeof orderByYear).toBe('function');
@@ -455,3 +455,4 @@ describe('Function "bestFilmOfYear"', () => {
   });
 
 });
+ */
