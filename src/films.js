@@ -44,11 +44,11 @@ function orderByYear(array) {
 		// Endreça l'array segons:
 		if (a.year < b.year) {
 			// Si l'any de la peli A és menor a l'any de la peli B.
-			return -1; 
+			return -1;
 		}
 		if (a.year > b.year) {
 			// Si l'any de la peli A és major al de la peli B.
-			return 1; 
+			return 1;
 		}
 		if (a.year === b.year) {
 			// Si els anys son iguals.
@@ -69,8 +69,17 @@ function orderByYear(array) {
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory(array, category) {
-
+function moviesAverageByCategory(array, genre) {
+	const genreMovies = array.filter((item) => {
+		// Guarda dins de genreMovies les pelis
+		if (item.genre.includes(genre) && item.score !== '') {
+			// Si el gènere és el mateix que entra per funció i si la nota no és igual a string buit.
+			return true; // Si fa tot això retorna true (per tant afegeix la peli a l'array).
+		}
+	});
+	const scoreMoviesGenre = genreMovies.reduce((acc, item) => acc + item.score, 0); // Suma les notes de totes les pelis de l'array nou començat per la posició 1 (0).
+	const moviesAverageGenre = Number((scoreMoviesGenre / genreMovies.length).toFixed(2)); // Converteix en número, divideix la nota entre les pelis (per fer la mitja) i fes que el núero tingui 2 decimals.
+	return moviesAverageGenre;
 }
 
 // Exercise 7: Modify the duration of movies to minutes
