@@ -83,10 +83,33 @@ function moviesAverageByCategory(array, genre) {
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {}
+function hoursToMinutes(array) {
+	const moviesList = array.map((item) => { 
+		let timeSplit = item.duration.split(' '); // Divideix en strings els items per cada espai (split). 
+		let timeHours = Number(timeSplit[0].replace('h', '')); // Treu la "h" i converteix l'string en número.
+		let totalTime = timeHours * 60; // Multiplica el número d'hores per 60(min).
+
+		if (timeSplit.length > 1) { // Si l'string de duració és major a 1, vol dir que té minuts sueltos.
+			let timeMinutes = Number(timeSplit[1].replace('min', '')); // Treu el "min" i converteix en número.
+			totalTime = totalTime + timeMinutes; // Suma les hores (en minuts) als minuts (sueltos).
+		}
+
+		return { // Retorna un un nou array copiant tots els elements menys la duration (que la canvies per resultat que has tret).
+			title: item.title,
+			year: item.year,
+			director: item.director,
+			duration: totalTime,
+			genre: item.genre,
+			score: item.score
+		};
+	});
+	return moviesList; // Retorna l'array
+}
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {}
+function bestFilmOfYear(array, year) {
+
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
